@@ -32,9 +32,9 @@ def parImpar(num1):
         return 0
     
 def primo(num1):
-    for cont in range(1,num+1):
+    for cont in range(1,num1+1):
         if num1%cont ==0:
-            contDiv+=1
+            contDiv=+1
         if contDiv <= 2:
             return 1
         else:
@@ -51,9 +51,11 @@ def tabuada(num1):
         tab = num1 * cont
         print(f"{num1} * {cont} = {tab}")
 
+
+resp = int(input("Escolha: \n1 - Adição\n2 - Subtração\n3 - Multiplicação\n4 - Divisãp\n5 - Exponenciação\n6 - Resto de divisão\n7 - Par ou Ímpar\n8 - Primo\n9 - Fatoria\n10 - Tabuada\n0 - Sair \n\nEscolha sua operação: "))
+
 n1 = int(input("N1: "))
 n2 = int(input("N2: "))
-resp = int(input("Escolha: \n1 - Adição\n2 - Subtração\n3 - Multiplicação\n4 - Divisãp\n5 - Exponenciação\n6 - Resto de divisão\n7 - Par ou Ímpar\n8 - Primo\n9 - Fatoria\n10 - Tabuada\n11\nEscolha sua operação: "))
 
 if resp == 1:
     res = soma(n1,n2)
@@ -67,25 +69,41 @@ elif resp == 3:
     print(f"Multiplicação: ", mult(n1,n2))
 
 elif resp == 4:
-    print(f"Divisão {div(n1,n2)}")
+        print(f"Divisão {div(n1,n2)}")
 
 elif resp == 5:
-    print(f"Exponenciação: ", pot(n1,n2))
+    print(f"Exponenciação: {pot(n1,n2)}")
 
 elif resp == 6:
-    print(f"Resto de divisão:  {resto(n1,n2)}")
+    print(f"Resto da divisão é:  {resto(n1,n2)}")
 
 elif resp == 7:
-    print(f"Par ou Ímpar:  {parImpar(n1,n2)}")
+    if parImpar(n1) == 1:
+        print(f"{n1} é PAR")
+    elif parImpar(n1) == 0:
+        print(f"{n1} é ÍMPAR") 
+    if parImpar(n2) == 1:
+        print(f"{n2} é PAR")
+    elif parImpar(n2) == 0:
+        print(f"{n2} é ÍMPAR") 
 
 elif resp == 8:
-    print(f"Primos:  {primo(n1,n2)}")
+    if primo(n1) == 1 and primo(n2) == 1:
+        print(f"{n1} e {n2} são primos")
+    elif primo(n1) == 1 and primo(n2) == 0:
+        print(f"{n1} é primo e {n2} não é primo")
+    elif primo(n1) == 0 and primo(n2) == 1:
+        print(f"{n1} não é primo e {n2} é primo")
+    elif primo(n1) == 0 and primo(n2) == 1:
+        print(f"{n1} e {n2} não são primos")
 
-elif resp == 7:
-    print(f"Fatorial:  {fat(n1,n2)}")
+elif resp == 9:
+    print(f"Fatorial de {n1}:  {fatorial(n1)}")
+    print(f"Fatorial de {n2}:  {fatorial(n2)}")
 
-elif resp == 8:
-    print(f"Tabuada:  {tab(n1,n2)}")
+elif resp == 10:
+    tabuada(n1)
+    tabuada(n2)
 
 else:
     print("Opção Inválida")
